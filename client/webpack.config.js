@@ -31,6 +31,7 @@ module.exports = () => {
         name: 'Text Editor - Progressive Web App',
         short_name: 'Text Editor_PWA',
         description: 'TextEditor',
+        inject: true,
         background_color: '#7eb4e2',
         theme_color: '#7eb4e2',
         start_url: '/',

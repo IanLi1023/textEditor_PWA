@@ -18,7 +18,7 @@ const initdb = async () =>
     const jateDb = await openDB('jate', 1);
     const tx = jateDb.transaction('jate', 'readwrite');
     const store = tx.objectStore('jate');
-    const request = store.put({ id: 1, value: content });
+    const request = store.put({ id: id, value: content });
     const result = await request;
     console.log('data saved to the jateDB', result.value);
   };
@@ -35,5 +35,5 @@ const initdb = async () =>
     return result.value;
   };
   
-  inituestdb();
+  initdb();
   

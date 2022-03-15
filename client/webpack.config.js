@@ -25,13 +25,14 @@ module.exports = () => {
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: './src-sw.js',
+        swDest: 'src-sw.js',
       }),
       new WebpackPwaManifest({
         name: 'Text Editor - Progressive Web App',
         short_name: 'Text Editor_PWA',
         description: 'TextEditor',
         inject: true,
+        fingerprints: false,
         background_color: '#7eb4e2',
         theme_color: '#7eb4e2',
         start_url: '/',
@@ -54,11 +55,12 @@ module.exports = () => {
         },
         {
           test: /\.m?js$/,
-          exclude: /(node_modules|bower_components)/,
+          exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
+              plugins: ['@babel/transform-runtime', '@babel/plugin-proposal-object-rest-spread'],
             },
           },
         },
